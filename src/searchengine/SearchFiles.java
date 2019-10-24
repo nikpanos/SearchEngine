@@ -80,21 +80,11 @@ public class SearchFiles {
 		in = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
 		
 		QueryParser parser = new QueryParser(Version.LUCENE_40, field, analyzer);
-		while (true) {
+		String line;
+		while ((line = queryString.trim()) != "") {
 			//if (queryString == null) {                        // prompt the user
 				//System.out.println("Enter query: ");
 			//}
-
-			String line = queryString;
-
-			//if (line == null || line.length() == -1) {
-				//break;
-			//}
-
-			line = line.trim();
-			if (line.length() == 0) {
-				break;
-			}
 
 			Query query = parser.parse(line);
 			//System.out.println("Searching for: " + query.toString(field));
